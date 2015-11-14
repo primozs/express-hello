@@ -1,10 +1,21 @@
 var express = require('express');
 var path = require('path');
+var gaikan = require('gaikan');
 
 var app = express();
 var port = process.argv[2] || process.env.PORT || 3000;
 
-app.use('/', express.static(path.resolve(__dirname, './public')));
+gaikan.options.layout = 'layout';
+app.set('view engine', 'html');
+app.engine('html', gaikan);
+
+app.get('/', function (req, res) {
+  res.render('index')
+});
+
+app.get('/about', function (req, res) {
+  res.render('about', {author: 'Taras Bulba'});
+});
 
 app.listen(port, function () {
   console.log('listening at ', port);
