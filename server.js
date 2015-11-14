@@ -1,6 +1,6 @@
 var express = require('express');
-var path = require('path');
 var gaikan = require('gaikan');
+var bodyParser = require('body-parser');
 
 var app = express();
 var port = process.argv[2] || process.env.PORT || 3000;
@@ -9,13 +9,10 @@ gaikan.options.layout = 'layout';
 app.set('view engine', 'html');
 app.engine('html', gaikan);
 
-app.get('/', function (req, res) {
-  res.render('index')
-});
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
-app.get('/about', function (req, res) {
-  res.render('about', {author: 'Taras Bulba'});
-});
+app.use(require('./routes'));
 
 app.listen(port, function () {
   console.log('listening at ', port);
