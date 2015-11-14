@@ -3,7 +3,7 @@ var express = require('express');
 var app = express();
 var port = process.argv[2] || process.env.PORT || 3000;
 
-app.get('/home', function (req, res) {
+app.get('/', function (req, res) {
   res.send('Hello World');
 });
 
