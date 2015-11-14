@@ -4,13 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "babel-node server.js",
+    "build": "webpack"
   },
   "author": "Primoz Susa <primoz.susa@niceclouds.com> (niceclouds.com)",
   "license": "MIT",
   "dependencies": {
     "body-parser": "1.14.1",
     "express": "4.13.3",
-    "gaikan": "2.0.2"
+    "gaikan": "2.0.2",
+    "react": "0.14.2",
+    "react-dom": "0.14.2"
+  },
+  "devDependencies": {
+    "babel-core": "6.1.21",
+    "babel-loader": "6.1.0",
+    "babel-preset-es2015": "6.1.18",
+    "babel-preset-react": "6.1.18",
+    "webpack": "1.12.6"
   }
 }

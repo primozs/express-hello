@@ -18,6 +18,6 @@ app.listen(port, function () {
   console.log('listening at ', port);
 });
 
-// node server.js
+// babel-node server.js
 // http://localhost:3000
 // za vsako spremembo je potrebno ponovno zagnat strežnik
